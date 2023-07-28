@@ -37,7 +37,12 @@ class Connection {
         $statement->bindValue('title', $note['title']);
         $statement->bindValue('description', $note['description']);
         $statement->execute();
-        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteNote($id) {
+        $statement = $this->pdo->prepare('DELETE FROM notes WHERE id = :id');
+        $statement->bindValue('id', $id);
+        $statement->execute();
     }
 }
 

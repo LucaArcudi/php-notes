@@ -67,7 +67,10 @@ if (isset($_GET['id'])) {
                                     <?php echo $note['title']; ?>
                                 </a>
                             </h3>
-                            <button class="border-0 bg-warning py-0 px-3">X</button>
+                            <form action="./delete.php" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $note['id']; ?>">
+                                <button type="submit" class="border-0 bg-warning py-0 px-3">X</button>
+                            </form>
                         </div>
                         <small class="mb-2 d-block">
                             <?php
